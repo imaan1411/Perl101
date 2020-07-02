@@ -154,7 +154,7 @@ sub arraysOfHashes() {
 	#get the value out
 	print $test[0]{"birds"} . "\n";
 	
-}
+} 
 
 
 #splitAndReadingCSVFiles();

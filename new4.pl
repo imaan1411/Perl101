@@ -68,5 +68,13 @@ sub referencesToHash {
 	
 }
 
+sub checkUsage {
+	my $opts = shift;
+	
+	my $a = $opts->{"a"}
+	my $c = $opts->{"c"}
+	my $f = $opts->{"f"}
+}
+
 gettingCommandLineOptionsAndSubRoutines();
 

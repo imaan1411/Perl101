@@ -4,14 +4,15 @@ use warnings;
 use Data::Dumper;
 
 sub main() {
-	my @months = qw[Januar Februar Maerz April Mail Juni Juli August September Oktober November Dezember];
+	my @months = qw[Januar Februar Maerz April Mai Juni Juli August September Oktober November Dezember];
 	my @amountOfDaysInMonth = (31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
 	my @days = qw[Mo Di Mi Do Fr Sa So];
 	my $counter = 0;
-	my $lastDayCounter = 0;
-	my $valueOftheLastDay = 0;
+	my $lastDayCounter = 1;
+	my $valueOftheLastDay = 2;
 	
 		foreach my $month (@months) {
+			
 			print $month . "\n";
 			print "---------------------------\n";
 			
@@ -26,10 +27,11 @@ sub main() {
 			}
 			
 		}
-		#$amountOfDaysInMonth[$counter] += $valueOftheLastDay;
-
-
-		foreach my $arr(1..$amountOfDaysInMonth[$counter] ) {
+		
+		my $count = $valueOftheLastDay;
+		
+		foreach my $arr((1)..($amountOfDaysInMonth[$counter])) {
+			$count++;
 			
 			if(length $arr == 1) {
 				print "0" . $arr . ", "; 
@@ -37,25 +39,41 @@ sub main() {
 				print "$arr, ";
 			}
 			
-			
-			
-			if ($arr % 7 == 0) {
-				print "\n";
-				$lastDayCounter++;
 
+			if (($count) % 7 == 0) {
+				print "\n";				
+				
 				if ($lastDayCounter == 4) {
-					$lastDayCounter = 0;
+					
 					$valueOftheLastDay = $amountOfDaysInMonth[$counter] - $arr;
-					#print $amountOfDaysInMonth[$counter] + $valueOftheLastDay ."efwef" ; 
-
+ 					$lastDayCounter = 0;
+					if ($valueOftheLastDay != 0) {
+						$valueOftheLastDay = checkIfSeven($valueOftheLastDay);				
+					}
 				}
+				$lastDayCounter++;
 			}
 		}
+			
 		print "\n\n";
 		$counter++;
 	}
-
 	
+	
+}
+
+sub checkIfSeven {
+	if($_[0] >= 7) {
+		$_[0]-=7; 
+	}
+
+	if ($_[0] >= 7) {
+		
+		checkIfSeven($_[0]);
+	}
+
+return $_[0];
+
 }
 
 main();

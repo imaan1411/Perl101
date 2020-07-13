@@ -1,6 +1,10 @@
+package new1;
+
 use strict;
 use warnings;
+use Exporter qw(import);
 
+our @EXPORT_OK = qw(main);
 
 sub main() {
 	my $alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -11,10 +15,8 @@ sub main() {
 	foreach my $char (split('', $alphabet)) {
 		$counter++;
 		if ($counter % 3 == 0) {
-			print uc($char);
 			$alp = $alp . uc($char);
 		} else {
-			print $char;
 			$alp = $alp . $char;
 		}			
 	}
@@ -22,11 +24,4 @@ sub main() {
 return $alp;	
 }
 
-sub realmain() {
-	
-	my $alp = main();
-	
-	print $alp;
-}
-
-realmain();
+1;

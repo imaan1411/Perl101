@@ -7,7 +7,6 @@ use Exporter qw(import);
 
 our @EXPORT_OK = qw(main);
 
-
 sub main() {
 	my @months = qw[Januar Februar Maerz April Mai Juni Juli August September Oktober November Dezember];
 	my @amountOfDaysInMonth = (31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
@@ -15,6 +14,7 @@ sub main() {
 	my $counter = 0;
 	my $lastDayCounter = 1;
 	my $valueOftheLastDay = 2;
+	my @alp;
 	my $alp = "";
 	
 		foreach my $month (@months) {
@@ -60,9 +60,13 @@ sub main() {
 			
 		$alp = $alp . "\n\n";
 		$counter++;
+				
+		if ($counter % 4 == 0) {
+			push @alp, $alp;
+			$alp = "";	
+		}
 	}
-	
-	return $alp;
+	return \@alp;
 }
 
 sub checkIfSeven {

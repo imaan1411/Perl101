@@ -1,0 +1,42 @@
+Nummerical operator: <, >, <=, >=, ==, !=, <=>, *
+String operator: lt, gt, le, ge, eq, ne, cmp, ., x 
+
+https://perldoc.perl.org/perlop.html#:~:text=Relational%20Operators,-Perl%20operators%20that&text=Binary%20%22%3C%22%20returns%20true%20if,less%20than%20the%20right%20argument.&text=Binary%20%22le%22%20returns%20true%20if,equal%20to%20the%20right%20argument.
+
+
+my @array = qw(a,b,c,d);
+access the array: $array[0]; #"a"
+access reversed: $array[-1]; #"d"
+
+
+interpreting a variable in a String with "  # print "my array: @array"; -> my array: abcd
+do not interpret, use just singlequotes '   # print 'my array: @array'; -> my array: @array
+
+
+a hash dont have any order
+my %hash = ("00" => "zero");
+
+print $hash{00}; # zero
+print $hash{"00"}; # zero
+
+
+scalar is a built in function
+
+
+A reference to something is created with a \ 
+my $colour = "Indigo";
+my $ref = \$colour;
+
+print ${$ref}; #"Indigo";
+
+Access to a array oder hash reference: 
+print ${$fakearrRef}[0]; 
+print $fakarrRef->[0]
+
+print  ${$fakeHashRef}{"Number"}; 
+print $fakeHashRef->{"Number"};
+
+
+I can create anonymous Hashes and Array 
+Watch Docs
+
